@@ -1,5 +1,5 @@
 # Savanna Bergen WEBD-3011
-# Write a Ruby program to calculate the after tax value of a specific dollar amount.
+# Write a Ruby program to calculate the after tax value of a specific dollar amount
 
 # Define a method to determine a short message
 def short_message(grand_total)
@@ -49,6 +49,6 @@ short_message = short_message(grand_total)
 pst_amount = calculate_pst(amount)
 gst_amount = calculate_gst(amount)
 puts "Subtotal: $#{amount}"
-puts "PST: $#{pst_amount}"
-puts "GST: $#{gst_amount}"
+puts "PST: $#{pst_amount} - 7%"
+puts "GST: $#{gst_amount} - 5%"
 puts "Grand Total: $#{grand_total} #{short_message}"
