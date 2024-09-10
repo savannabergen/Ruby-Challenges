@@ -1,7 +1,5 @@
 # Savanna Bergen WEBD-3011
-require 'net/http'
-require 'json'
-require 'pp'
+
 
 # Using a single puts statement build the following
 # sentence using only data from the carl hash and the
@@ -22,7 +20,7 @@ sagan = [
           { 2 => ['to']}
         ]
 
-# Here is an example of building a setence out of array/hash pieces.
+# Here is an example of building a sentence out of array/hash pieces.
 example = [ 'test', 'a', 'is']
 time    = { :that => 'This', :period => '.'}
 puts "#{time[:that]} #{example[2]} #{example[1]} #{example[0]}#{time[:period]}"
@@ -47,10 +45,18 @@ ghosts.each do |ghost|
     puts ghost_info
 end
 
-# Something Happening Here
 puts "Task 3: "
+require 'net/http'
+require 'json'
+require 'pp'
+
 url = 'https://dog.ceo/api/breeds/list/all'
 uri = URI(url)
 response = Net::HTTP.get(uri)
 dog_breeds = JSON.parse(response) # Convert JSON data into Ruby data.
-pp dog_breeds # pp stands for pretty print.
+got_it = dog_breeds['message']
+for dog in got_it
+  puts "#{dog}"
+end
+
+puts "Task 3 Part 2: "
