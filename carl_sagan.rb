@@ -58,5 +58,3 @@ got_it = dog_breeds['message']
 for dog in got_it
   puts "#{dog}"
 end
-
-puts "Task 3 Part 2: "
