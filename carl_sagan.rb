@@ -27,7 +27,7 @@ puts "#{time[:that]} #{example[2]} #{example[1]} #{example[0]}#{time[:period]}"
 
 # Output Carl Sagan Sentence
 puts "Task 1: "
-puts "#{carl[:words][2]} #{sagan[0][:are]} #{sagan[0]['A']} #{sagan[1]['waaaaaay']} #{carl[:words][1]} #{sagan[1][:th3]} #{carl[:toast]} #{sagan[3][2][0]} #{carl[:words][0]} #{sagan[2]}#{carl[:punctuation][1]}"
+puts "#{carl[:words][2].capitalize} #{sagan[0][:are]} #{sagan[0]['A']} #{sagan[1]['waaaaaay']} #{carl[:words][1]} #{sagan[1][:th3]} #{carl[:toast]} #{sagan[3][2][0]} #{carl[:words][0]} #{sagan[2]}#{carl[:punctuation][1]}"
 
 # Create an array of hashes named 'ghosts'
 ghosts = [
@@ -58,3 +58,14 @@ got_it = dog_breeds['message']
 for dog in got_it
   puts "#{dog}"
 end
+
+puts "Task 4: "
+
+url = 'https://data.winnipeg.ca/resource/d3jk-hb6j.json?$limit=306000'
+uri = URI(url)
+response = Net::HTTP.get(uri)
+winnipeg_data = JSON.parse(response) # Convert JSON data into Ruby data.
+
+result = winnipeg_data.select{|a| a["common_name"].include?("ash") }
+task_4 = result.count
+puts "Ash Trees: #{task_4}"
